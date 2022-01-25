@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Napilnik
+﻿namespace Napilnik
 {
+    internal class Weapon
+    {
+        public void Shoot() 
+        {
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
