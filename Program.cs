@@ -1,11 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Napilnik
 {
+    internal class Player
+    {
+        
+    }
+
+    internal class Weapon
+    {
+        
+    }
+
+    internal class Follower
+    {
+        
+    }
+
+    internal class Unit
+    {
+
+    }
+
+    internal class UnitStorage
+    {
+        public IReadOnlyCollection<Unit> Units { get; private set; }
+    }
+
     class Program
     {
         static void Main(string[] args)
