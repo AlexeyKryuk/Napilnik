@@ -16,6 +16,8 @@ namespace Napilnik
     {
         public string Name { get; private set; }
         public int Age { get; private set; }
+        public Movement Movement { get; private set; }
+        public Weapon Weapon { get; private set; }
     }
 
     class Movement
