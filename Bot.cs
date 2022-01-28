@@ -8,12 +8,12 @@ namespace Napilnik.Source
 {
     public class Bot
     {
-        private Weapon _weapon;
+        private readonly Weapon _weapon;
         
         public Bot(Weapon weapon)
         {
             if (weapon == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(weapon));
 
             _weapon = weapon;
         }

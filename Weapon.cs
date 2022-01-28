@@ -10,8 +10,11 @@ namespace Napilnik.Source
     {
         public Weapon(int damage, int bullets)
         {
-            if (damage < 0 || bullets < 0)
-                throw new ArgumentOutOfRangeException();
+            if (damage < 0)
+                throw new ArgumentOutOfRangeException(nameof(damage));
+
+            if (bullets < 0)
+                throw new ArgumentOutOfRangeException(nameof(bullets));
 
             Damage = damage;
             Bullets = bullets;
@@ -24,7 +27,7 @@ namespace Napilnik.Source
         public void Fire(Player player)
         {
             if (player == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(player));
 
             if (Bullets == 0)
             {
