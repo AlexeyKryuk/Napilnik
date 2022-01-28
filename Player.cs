@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 namespace Napilnik.Source
 {
@@ -27,7 +26,7 @@ namespace Napilnik.Source
 
             int expectedHealth = Health - damage;
 
-            Health = Mathf.Clamp(expectedHealth, 0, MaxHealth);
+            Health = Math.Max(expectedHealth, 0);
         }
     }
 }
