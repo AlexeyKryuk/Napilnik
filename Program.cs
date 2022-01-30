@@ -99,7 +99,6 @@ namespace Napilnik
             }
         }
 
-
         private bool ValidatePassportData(string data)
         {
             if (string.IsNullOrEmpty(data))
