@@ -1,0 +1,7 @@
+C:\Users\Alexey\source\repos\Napilnik\Napilnik\bin\Debug\Napilnik.exe.config
+C:\Users\Alexey\source\repos\Napilnik\Napilnik\bin\Debug\Napilnik.exe
+C:\Users\Alexey\source\repos\Napilnik\Napilnik\bin\Debug\Napilnik.pdb
+C:\Users\Alexey\source\repos\Napilnik\Napilnik\obj\Debug\Napilnik.csproj.AssemblyReference.cache
+C:\Users\Alexey\source\repos\Napilnik\Napilnik\obj\Debug\Napilnik.csproj.CoreCompileInputs.cache
+C:\Users\Alexey\source\repos\Napilnik\Napilnik\obj\Debug\Napilnik.exe
+C:\Users\Alexey\source\repos\Napilnik\Napilnik\obj\Debug\Napilnik.pdb
