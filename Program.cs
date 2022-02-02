@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Napilnik
+﻿namespace Napilnik
 {
     class Program
     {
+        public void Play()
+        {
+            _effects.StartEnableAnimation();
+        }
+
+        public void Stop()
+        {
+            _pool.Free(this);
+        }
+
         static void Main(string[] args)
         {
         }
