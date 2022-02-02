@@ -8,6 +8,9 @@ namespace Napilnik
 {
     class Program
     {
+        public void Shoot(Player player) { }
+        public string FindBy(int index) { }
+
         static void Main(string[] args)
         {
         }
