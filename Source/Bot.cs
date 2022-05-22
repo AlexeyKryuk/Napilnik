@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Napilnik.Source
 {
     public class Bot
     {
+        private Weapon _weapon;
+        
         public Bot(Weapon weapon)
         {
             if (weapon == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(weapon));
 
-            Weapon = weapon;
+            _weapon = weapon;
         }
-
-        public Weapon Weapon { get; private set; }
 
         public void OnSeePlayer(Player player)
         {
-            Weapon.Fire(player);
+            _weapon.Fire(player);
         }
     }
 }

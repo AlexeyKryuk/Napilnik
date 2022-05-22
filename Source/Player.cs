@@ -1,43 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Napilnik.Source
 {
     public class Player
     {
+        private Health _health;
+
         public Player(int health)
         {
             if (health <= 0)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(health));
 
-            Health = health;
+            _health = health;
         }
 
-        public event Action HealthEnded;
-        public event Action<int> HealthChanged;
-
-        public int Health { get; private set; }
+        public IReadOnlyHealth Health => _health;
 
         public void ApplyDamage(int damage)
         {
-            if (damage <= 0)
-                throw new ArgumentOutOfRangeException();
+            if (damage < 0)
+                throw new ArgumentOutOfRangeException(nameof(damage));
 
-            int expectedHealth = Health - damage;
-
-            if (expectedHealth < 0)
-            {
-                Health = 0;
-                HealthEnded?.Invoke();
-            }
-            else
-            {
-                Health = expectedHealth;
-                HealthChanged?.Invoke(Health);
-            }
+            _health.ApplyDamage(damage);
         }
     }
 }
