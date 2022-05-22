@@ -1,4 +1,7 @@
-﻿namespace Napilnik
+﻿using System;
+using Napilnik.Source;
+
+namespace Napilnik
 {
     class Program
     {
