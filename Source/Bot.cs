@@ -16,6 +16,9 @@ namespace Napilnik.Source
 
         public void OnSeePlayer(Player player)
         {
+            if (player == null)
+                throw new ArgumentNullException(nameof(player));
+
             _weapon.Fire(player);
         }
     }

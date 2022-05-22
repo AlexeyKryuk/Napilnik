@@ -2,17 +2,17 @@ using System;
 
 namespace Napilnik.Source
 {
-    public class Health : IReadOnlyHealth
+    public struct Health : IReadOnlyHealth
     {
         private int _value;
         private int _maxValue;
 
         public Health(int value, int maxValue)
         {
-            if (value <= 0)
+            if (value < 0 || value > maxValue)
                 throw new ArgumentOutOfRangeException(nameof(value));
 
-            if (maxValue <= 0)
+            if (maxValue < 1)
                 throw new ArgumentOutOfRangeException(nameof(maxValue));
 
             _value = value;
@@ -22,18 +22,18 @@ namespace Napilnik.Source
         public int Value => _value;
         public int MaxValue => _maxValue;
 
-        public void ApplyDamage(int damage)
+        public Health TakeDamage(int damage)
         {
             if (damage < 0)
                 throw new ArgumentOutOfRangeException(nameof(damage));
 
-            _value -= damage;
+            return new Health(Math.Max(_value - damage, 0), _maxValue);
         }
     }
 
     public interface IReadOnlyHealth
     {
-        int Value {get; }
-        int MaxValue {get; }
+        int Value { get; }
+        int MaxValue { get; }
     }
 }

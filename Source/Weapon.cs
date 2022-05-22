@@ -4,10 +4,11 @@ namespace Napilnik.Source
 {
     public class Weapon
     {
-        private int _bulletsPerShoot;
-        private int _damage;
+        private readonly int _bulletsPerShoot;
+        private readonly int _damage;
+
         private int _bullets;
-        
+
         public Weapon(int damage, int bullets, int bulletsPerShoot = 1)
         {
             if (damage < 0)
@@ -26,13 +27,13 @@ namespace Napilnik.Source
 
         public bool CanShoot => _bullets >= _bulletsPerShoot;
 
-        public void Fire(Player player)
+        public void Fire(IDamageable target)
         {
             if (CanShoot == false)
                 throw new InvalidOperationException(nameof(CanShoot));
 
-            Bullets -= _bulletsPerShoot;
-            player.ApplyDamage(Damage);
+            _bullets -= _bulletsPerShoot;
+            target.ApplyDamage(_damage * _bulletsPerShoot);
         }
     }
 }

@@ -2,26 +2,35 @@
 
 namespace Napilnik.Source
 {
-    public class Player
+    public class Player : IDamageable
     {
         private Health _health;
 
-        public Player(int health)
+        public Player(Health health)
         {
-            if (health <= 0)
-                throw new ArgumentOutOfRangeException(nameof(health));
-
             _health = health;
         }
 
         public IReadOnlyHealth Health => _health;
 
-        public void ApplyDamage(int damage)
-        {
-            if (damage < 0)
-                throw new ArgumentOutOfRangeException(nameof(damage));
+        public event Action<IReadOnlyHealth> HealthChanged;
 
-            _health.ApplyDamage(damage);
+        public void ApplyDamage(int amount)
+        {
+            if (amount < 0)
+                throw new ArgumentOutOfRangeException(nameof(amount));
+
+           _health = _health.TakeDamage(amount);
+            HealthChanged?.Invoke(_health);
         }
+    }
+
+    public interface IDamageable
+    {
+        event Action<IReadOnlyHealth> HealthChanged;
+
+        IReadOnlyHealth Health { get; }
+
+        void ApplyDamage(int amount);
     }
 }
